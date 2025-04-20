@@ -13,7 +13,7 @@
 
         public override int GetHashCode()
         {
-            // Використання множника 31 є стандартною практикою для кращого розподілу хеш-кодів
+            // Using a multiplier of 31 is standard practice for better hash code distribution.
             var hashCode = File.GetHashCode() * 31 + Rank.GetHashCode();
             return hashCode;
         }

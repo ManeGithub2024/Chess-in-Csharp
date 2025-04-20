@@ -3,12 +3,12 @@ using ChessLib.Pieces;
 
 namespace ConsoleApp
 {
-    internal class BoardRender
+    internal class BoardRenderer
     {
         private readonly PieceSprite _chessSprite;
         private readonly BoardCellSprite _boardCellSprite;
 
-        public BoardRender()
+        public BoardRenderer()
         {
             _chessSprite = new PieceSprite();
             _boardCellSprite = new BoardCellSprite();
@@ -47,7 +47,7 @@ namespace ConsoleApp
         }
 
         /// <summary>
-        /// Apply cell color depend on piece
+        /// Apply cell color and cell content depend on piece
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="isCellBlack"></param>
@@ -62,17 +62,28 @@ namespace ConsoleApp
 
             string cellColor;
             if (isCellBlack) {
-                cellColor = _boardCellSprite.FontColors[ConsoleColor.White] + _boardCellSprite.BackgroundColors[ConsoleColor.Black] + symbol + _boardCellSprite.BackgroundColors[ConsoleColor.ResetColor];
-            } else {
-                if (piece?.Color == Color.White) {
-                    cellColor = _boardCellSprite.FontColors[ConsoleColor.Black] + _boardCellSprite.BackgroundColors[ConsoleColor.White] + symbol + _boardCellSprite.BackgroundColors[ConsoleColor.ResetColor];
+                if (piece != null) {
+                    if (piece.Color == Color.Black) {
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + _boardCellSprite.FontColors[ConsoleColor.Black] + symbol;
+                    } else {
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + _boardCellSprite.FontColors[ConsoleColor.White] + symbol;
+                    }
                 } else {
-                    cellColor = _boardCellSprite.FontColors[ConsoleColor.Gray] + _boardCellSprite.BackgroundColors[ConsoleColor.White] + symbol + _boardCellSprite.BackgroundColors[ConsoleColor.ResetColor];
+                    cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + symbol;
+                }
+            } else {
+                if (piece != null) {
+                    if (piece.Color == Color.Black) {
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Gray] + _boardCellSprite.FontColors[ConsoleColor.Black] + symbol;
+                    } else {
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Gray] + _boardCellSprite.FontColors[ConsoleColor.White] + symbol;
+                    }
+                } else {
+                    cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Gray] + symbol;
                 }
             }
-            //cellColor += "|";
 
-            return cellColor;
+            return cellColor + _boardCellSprite.BackgroundColors[ConsoleColor.ResetColor];
         }
     }
 }

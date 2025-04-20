@@ -1,7 +1,4 @@
-﻿using ChessLib;
-using ChessLib.Pieces;
-
-namespace ConsoleApp
+﻿namespace ConsoleApp
 {
     internal class BoardCellSprite
     {
@@ -10,11 +7,12 @@ namespace ConsoleApp
 
         // ANSI escape codes for background text colors
         const string WhiteBackground = "\u001B[47m";
-        const string BlackBackground = "\u001B[40m";
+        const string BlackBackground = "\u001B[0;100m";
+        const string SelectedBackground = "\u001B[45m";
 
         // ANSI escape codes for text colors
-        public const string BlackText = "\u001B[30m";
-        public const string WhiteText = "\u001B[37m";
+        public const string BlackText = "\u001B[34m";
+        public const string WhiteText = "\u001B[97m";
         public const string GrayText = "\u001B[90m";
 
         public Dictionary<ConsoleColor, string> BackgroundColors { get; private set; }
@@ -22,17 +20,18 @@ namespace ConsoleApp
 
         public BoardCellSprite()
         {
-            BackgroundColors = new Dictionary<ConsoleColor, string> {                
+            BackgroundColors = new Dictionary<ConsoleColor, string> {
+                { ConsoleColor.ResetColor, ResetColor},
                 { ConsoleColor.White, WhiteBackground},
                 { ConsoleColor.Black, BlackBackground},
-                { ConsoleColor.ResetColor, ResetColor}
+                { ConsoleColor.Gray, BlackText}                
             };
 
             FontColors = new Dictionary<ConsoleColor, string> {
                 { ConsoleColor.ResetColor, ResetColor},
                 { ConsoleColor.White, WhiteText},
                 { ConsoleColor.Black, BlackText},
-                { ConsoleColor.Gray, BlackText}
+                { ConsoleColor.Gray, GrayText}
             };
         }
     }
