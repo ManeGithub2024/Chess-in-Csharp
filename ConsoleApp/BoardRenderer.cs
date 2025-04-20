@@ -3,7 +3,7 @@ using ChessLib.Pieces;
 
 namespace ConsoleApp
 {
-    internal class BoardRenderer
+    public class BoardRenderer : IBoardRenderer
     {
         private readonly PieceSprite _chessSprite;
         private readonly BoardCellSprite _boardCellSprite;

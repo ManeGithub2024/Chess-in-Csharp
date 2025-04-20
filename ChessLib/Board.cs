@@ -19,6 +19,16 @@ namespace ChessLib
             Pieces.Add(coordinates, piece);
         }
 
+        public bool IsCellEmpty(Coordinates coordinates)
+        {
+            return !this.Pieces.ContainsKey(coordinates);
+        }
+
+        public Piece GetPiece(Coordinates coordinates)
+        {
+            return this.Pieces[coordinates];
+        }
+
         public void SetupDefaultPiecePositions()
         {
             SetupPawn<Pawn>(Color.White, Rank.Rank2);

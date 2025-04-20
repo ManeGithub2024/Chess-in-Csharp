@@ -1,10 +1,16 @@
-﻿namespace ChessLib.Pieces
+﻿
+namespace ChessLib.Pieces
 {
     public class Rook : Piece
     {
         public Rook(Coordinates coordinates, Color color) : base(coordinates, color)
         {
 
+        }
+
+        protected override HashSet<CoordinatesShift> GetPieceShift()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -11,6 +11,18 @@ internal class Program
         var printer = new BoardRenderer();
         printer.DrawBoard(board);
 
+        var knight = board.GetPiece(new Coordinates(ChessLib.File.B, Rank.Rank1));
+        var moves = knight.GetAvailableMoveCell(board);
+
+        knight = board.GetPiece(new Coordinates(ChessLib.File.G, Rank.Rank1));
+        moves = knight.GetAvailableMoveCell(board);
+
+        knight = board.GetPiece(new Coordinates(ChessLib.File.B, Rank.Rank8));
+        moves = knight.GetAvailableMoveCell(board);
+
+        knight = board.GetPiece(new Coordinates(ChessLib.File.G, Rank.Rank8));
+        moves = knight.GetAvailableMoveCell(board);
+
         Console.ReadKey();
     }
 }

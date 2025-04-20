@@ -11,6 +11,33 @@
             Rank = rank;
         }
 
+        public Coordinates Shift (CoordinatesShift shift) {
+            var newFileShift = (int)this.File + (int)shift.FileShift;
+            var newRankShift = (int)this.Rank + (int)shift.RankShift;
+
+            return new Coordinates((File)newFileShift, (Rank)newRankShift);        
+        }
+
+        public bool CanShift(CoordinatesShift shift) {
+            var newFileShift = (int)this.File + (int)shift.FileShift;
+            var newRankShift = (int)this.Rank + (int)shift.RankShift;
+            
+            if (WithinBorderBoundaries(newFileShift) && WithinBorderBoundaries(newRankShift)) {
+                return true;            
+            }
+
+            return false;
+
+            bool WithinBorderBoundaries(int shift)
+            {
+                if (shift < 1 || shift > 8) {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
         public override int GetHashCode()
         {
             // Using a multiplier of 31 is standard practice for better hash code distribution.
