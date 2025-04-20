@@ -18,6 +18,16 @@ namespace ChessLib
             piece.Coordinates = coordinates;
             Pieces.Add(coordinates, piece);
         }
+        public void RemovePiece(Coordinates coordinates)
+        {
+            Pieces.Remove(coordinates);
+        }
+
+        public void MovePiece(Coordinates from, Coordinates to) { 
+            var piece = Pieces[from];
+            RemovePiece(from);
+            SetPiece(to, piece);        
+        }
 
         public bool IsCellEmpty(Coordinates coordinates)
         {

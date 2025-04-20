@@ -63,5 +63,10 @@
 
             return this.File.Equals(other.File) && this.Rank.Equals(other.Rank);
         }
+
+        public override string ToString()
+        {
+            return $"{File}{(int)Rank}";
+        }
     }
 }
