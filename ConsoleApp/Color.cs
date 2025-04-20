@@ -4,7 +4,6 @@
     {
         White = 1,
         Black,
-        Gray,
         ResetColor
     }
 }
