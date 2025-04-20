@@ -2,7 +2,7 @@
 {
     public enum Rank
     {
-        Rank1,
+        Rank1 = 1,
         Rank2,
         Rank3,
         Rank4,

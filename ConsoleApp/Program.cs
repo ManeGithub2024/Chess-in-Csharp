@@ -7,8 +7,9 @@ internal class Program
     {
         var board  = new Board();
         board.SetupDefaultPiecePositions();
-        var printer = new PrintBoard();
-        printer.Print(board);
+
+        var printer = new BoardRender();
+        printer.DrawBoard(board);
 
         Console.ReadKey();
     }
