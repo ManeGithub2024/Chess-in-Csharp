@@ -10,11 +10,11 @@ namespace ChessLib
     {
         private readonly Board _board;
         private readonly IBoardRenderer _renderer;
-        private readonly ICoordinaesProvider _provider;
+        private readonly IInputOutputCoordinatesProvider _provider;
 
         public bool IsWhiteTurn { get; private set; }
 
-        public Game(Board board, IBoardRenderer renderer, ICoordinaesProvider provider)
+        public Game(Board board, IBoardRenderer renderer, IInputOutputCoordinatesProvider provider)
         {
             _board = board;
             _renderer = renderer;
@@ -26,15 +26,21 @@ namespace ChessLib
         public void GameLoop()
         {
             while (true) {
-                // render
+                _renderer.DrawBoard(_board);
+
+                var color = IsWhiteTurn ? Color.White : Color.Black;
+                var pickUpCoordinates = _provider.GetPickUpCoordinates(color, _board);
+
+                var piece = _board.GetPiece(pickUpCoordinates);  
+                
+                var availableMoves = piece.GetAvailableMoveCell(_board);
+                var moveCoordinates = _provider.GetMoveCoordinates(availableMoves);
+
+                _board.MovePiece(pickUpCoordinates, moveCoordinates);
+
                 _renderer.DrawBoard(_board);
                 
-                // input
-                
-                // make move
-                
-                // pass move
-                IsWhiteTurn = false;
+                IsWhiteTurn = !IsWhiteTurn;
             }
         }
     }

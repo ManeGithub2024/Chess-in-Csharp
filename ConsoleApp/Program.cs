@@ -14,7 +14,7 @@ internal class Program
         var knight = board.GetPiece(new Coordinates(ChessLib.File.B, Rank.Rank1));
         var moves = knight.GetAvailableMoveCell(board);
 
-        var provider = new CoordinaesProvider();
+        var provider = new InputOutputCoordinatesProvider();
         var cc = provider.GetPickUpCoordinates(Color.White, board);
 
 

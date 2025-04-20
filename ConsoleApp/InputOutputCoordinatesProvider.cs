@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
-    public class CoordinaesProvider : ICoordinaesProvider
+    public class InputOutputCoordinatesProvider : IInputOutputCoordinatesProvider
     {
-        public CoordinaesProvider()
+        public InputOutputCoordinatesProvider()
         {
 
         }
 
-        public Coordinates ReadCoordinates()
+        private Coordinates ReadCoordinates()
         {
             while (true) {
                 Console.WriteLine("Enter the coordinates of the piece to move. (a1)");
@@ -54,6 +54,18 @@ namespace ConsoleApp
             }
         }
 
+        public Coordinates GetMoveCoordinates(HashSet<Coordinates> availableMoves)
+        {
+            while (true) {
+                var coordinates = ReadCoordinates();
+                if (!availableMoves.Contains(coordinates)) {
+                    PresentAvailableMoves(availableMoves);
+                    continue;
+                }
+                return coordinates;
+            }
+        }
+
         private bool IsValidCoordinate(string coordinate, out ChessLib.File? file, out ChessLib.Rank? rank)
         {
             file = new Nullable<ChessLib.File>();
@@ -82,6 +94,13 @@ namespace ConsoleApp
             }
 
             return false;
+        }
+
+        private void PresentAvailableMoves(HashSet<Coordinates> availableMoves)
+        {
+            var coordinates = availableMoves.Select(c => c.ToString()).ToArray();
+            var word = string.Join(", ", coordinates);
+            Console.WriteLine($"Enter one of {word}");
         }
     }
 }
