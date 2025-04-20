@@ -66,20 +66,20 @@ namespace ConsoleApp
                     if (piece.Color == Color.Black) {
                         cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + _boardCellSprite.FontColors[ConsoleColor.Black] + symbol;
                     } else {
-                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + _boardCellSprite.FontColors[ConsoleColor.White] + symbol;
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + symbol;
                     }
                 } else {
                     cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Black] + symbol;
                 }
             } else {
                 if (piece != null) {
-                    if (piece.Color == Color.Black) {
-                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Gray] + _boardCellSprite.FontColors[ConsoleColor.Black] + symbol;
+                    if (piece.Color == Color.White) {
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.White] + symbol;
                     } else {
-                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Gray] + _boardCellSprite.FontColors[ConsoleColor.White] + symbol;
+                        cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.White] + _boardCellSprite.FontColors[ConsoleColor.Black] + symbol;
                     }
                 } else {
-                    cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.Gray] + symbol;
+                    cellColor = _boardCellSprite.BackgroundColors[ConsoleColor.White] + symbol;
                 }
             }
 
