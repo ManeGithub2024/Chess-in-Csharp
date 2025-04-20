@@ -29,15 +29,15 @@ namespace ChessLib
             Setup<Rook>(new Coordinates(File.A, Rank.Rank8), Color.Black);
             Setup<Rook>(new Coordinates(File.H, Rank.Rank8), Color.Black);
 
-            Setup<Bishop>(new Coordinates(File.B, Rank.Rank1), Color.White);
-            Setup<Bishop>(new Coordinates(File.G, Rank.Rank1), Color.White);
-            Setup<Bishop>(new Coordinates(File.B, Rank.Rank8), Color.Black);
-            Setup<Bishop>(new Coordinates(File.G, Rank.Rank8), Color.Black);
+            Setup<Knight>(new Coordinates(File.B, Rank.Rank1), Color.White);
+            Setup<Knight>(new Coordinates(File.G, Rank.Rank1), Color.White);
+            Setup<Knight>(new Coordinates(File.B, Rank.Rank8), Color.Black);
+            Setup<Knight>(new Coordinates(File.G, Rank.Rank8), Color.Black);
 
-            Setup<Knight>(new Coordinates(File.C, Rank.Rank1), Color.White);
-            Setup<Knight>(new Coordinates(File.F, Rank.Rank1), Color.White);
-            Setup<Knight>(new Coordinates(File.C, Rank.Rank8), Color.Black);
-            Setup<Knight>(new Coordinates(File.F, Rank.Rank8), Color.Black);
+            Setup<Bishop>(new Coordinates(File.C, Rank.Rank1), Color.White);
+            Setup<Bishop>(new Coordinates(File.F, Rank.Rank1), Color.White);
+            Setup<Bishop>(new Coordinates(File.C, Rank.Rank8), Color.Black);
+            Setup<Bishop>(new Coordinates(File.F, Rank.Rank8), Color.Black);
 
             Setup<Queen>(new Coordinates(File.D, Rank.Rank1), Color.White);
             Setup<King>(new Coordinates(File.E, Rank.Rank1), Color.White);
