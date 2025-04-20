@@ -1,9 +1,5 @@
 ﻿using ChessLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ChessLib.Contracts;
 
 namespace ConsoleApp
 {
@@ -57,9 +53,9 @@ namespace ConsoleApp
         public Coordinates GetMoveCoordinates(HashSet<Coordinates> availableMoves)
         {
             while (true) {
+                PresentAvailableMoves(availableMoves);
                 var coordinates = ReadCoordinates();
                 if (!availableMoves.Contains(coordinates)) {
-                    PresentAvailableMoves(availableMoves);
                     continue;
                 }
                 return coordinates;

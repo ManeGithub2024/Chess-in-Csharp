@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ChessLib.Contracts;
 
 namespace ChessLib
 {
@@ -29,17 +25,15 @@ namespace ChessLib
                 _renderer.DrawBoard(_board);
 
                 var color = IsWhiteTurn ? Color.White : Color.Black;
-                var pickUpCoordinates = _provider.GetPickUpCoordinates(color, _board);
+                var from = _provider.GetPickUpCoordinates(color, _board);
 
-                var piece = _board.GetPiece(pickUpCoordinates);  
-                
-                var availableMoves = piece.GetAvailableMoveCell(_board);
-                var moveCoordinates = _provider.GetMoveCoordinates(availableMoves);
+                var piece = _board.GetPiece(from);
 
-                _board.MovePiece(pickUpCoordinates, moveCoordinates);
+                var possibleMoves = piece.GetAvailableMoveCell(_board);
+                var to = _provider.GetMoveCoordinates(possibleMoves);
 
-                _renderer.DrawBoard(_board);
-                
+                _board.MovePiece(from, to);
+
                 IsWhiteTurn = !IsWhiteTurn;
             }
         }

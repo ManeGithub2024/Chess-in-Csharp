@@ -11,19 +11,21 @@
             Rank = rank;
         }
 
-        public Coordinates Shift (CoordinatesShift shift) {
+        public Coordinates Shift(CoordinatesShift shift)
+        {
             var newFileShift = (int)this.File + (int)shift.FileShift;
             var newRankShift = (int)this.Rank + (int)shift.RankShift;
 
-            return new Coordinates((File)newFileShift, (Rank)newRankShift);        
+            return new Coordinates((File)newFileShift, (Rank)newRankShift);
         }
 
-        public bool CanShift(CoordinatesShift shift) {
+        public bool CanShift(CoordinatesShift shift)
+        {
             var newFileShift = (int)this.File + (int)shift.FileShift;
             var newRankShift = (int)this.Rank + (int)shift.RankShift;
-            
+
             if (WithinBorderBoundaries(newFileShift) && WithinBorderBoundaries(newRankShift)) {
-                return true;            
+                return true;
             }
 
             return false;

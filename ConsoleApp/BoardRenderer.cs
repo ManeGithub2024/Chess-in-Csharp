@@ -1,4 +1,5 @@
 ﻿using ChessLib;
+using ChessLib.Contracts;
 using ChessLib.Pieces;
 
 namespace ConsoleApp

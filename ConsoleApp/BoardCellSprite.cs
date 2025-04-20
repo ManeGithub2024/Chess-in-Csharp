@@ -22,7 +22,7 @@
             BackgroundColors = new Dictionary<ConsoleColor, string> {
                 { ConsoleColor.ResetColor, ResetColor},
                 { ConsoleColor.White, WhiteBackground},
-                { ConsoleColor.Black, BlackBackground}               
+                { ConsoleColor.Black, BlackBackground}
             };
 
             FontColors = new Dictionary<ConsoleColor, string> {

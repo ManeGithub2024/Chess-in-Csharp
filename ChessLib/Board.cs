@@ -1,4 +1,5 @@
-﻿using ChessLib.Pieces;
+﻿using ChessLib.Contracts;
+using ChessLib.Pieces;
 
 namespace ChessLib
 {
@@ -23,10 +24,11 @@ namespace ChessLib
             Pieces.Remove(coordinates);
         }
 
-        public void MovePiece(Coordinates from, Coordinates to) { 
+        public void MovePiece(Coordinates from, Coordinates to)
+        {
             var piece = Pieces[from];
             RemovePiece(from);
-            SetPiece(to, piece);        
+            SetPiece(to, piece);
         }
 
         public bool IsCellEmpty(Coordinates coordinates)

@@ -1,4 +1,5 @@
-﻿using ChessLib.Pieces;
+﻿using ChessLib.Contracts;
+using ChessLib.Pieces;
 
 namespace ChessLib
 {

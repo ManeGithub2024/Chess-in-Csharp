@@ -1,7 +1,4 @@
-﻿
-using ChessLib.Pieces;
-
-namespace ChessLib
+﻿namespace ChessLib.Contracts
 {
     public interface IInputOutputCoordinatesProvider
     {

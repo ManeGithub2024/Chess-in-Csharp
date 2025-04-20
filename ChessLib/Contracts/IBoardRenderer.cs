@@ -1,6 +1,4 @@
-﻿using ChessLib;
-
-namespace ChessLib
+﻿namespace ChessLib.Contracts
 {
     public interface IBoardRenderer
     {

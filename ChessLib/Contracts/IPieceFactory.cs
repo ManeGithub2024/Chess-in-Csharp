@@ -1,6 +1,6 @@
 ﻿using ChessLib.Pieces;
 
-namespace ChessLib
+namespace ChessLib.Contracts
 {
     public interface IPieceFactory<out R>
         where R : Piece
