@@ -4,6 +4,7 @@
   Now only a knight can walk.
 
 Screen
+![image](https://github.com/user-attachments/assets/aa4be380-b0c5-49f6-962e-56c530bdb59f)
 
-![image](https://github.com/user-attachments/assets/62c7a4d5-a304-47f7-84a8-c036b8a95ee7)
+
 
