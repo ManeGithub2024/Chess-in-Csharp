@@ -5,5 +5,7 @@
 
 Screen
 
-![image](https://github.com/user-attachments/assets/62c7a4d5-a304-47f7-84a8-c036b8a95ee7)
+![image](https://github.com/user-attachments/assets/f7fe2c4a-ee80-48d3-870f-9080c92df828)
+
+![image](https://github.com/user-attachments/assets/102c92a5-d3d2-4a87-a2bc-6a5d1958501d)
 
