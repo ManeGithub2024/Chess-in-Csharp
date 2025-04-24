@@ -7,8 +7,8 @@
 
         internal Coordinates(File file, Rank rank)
         {
-            File = (File)file;
-            Rank = (Rank)rank;
+            File = file;
+            Rank = rank;
         }
 
         public Coordinates(int file, int rank)

@@ -1,5 +1,4 @@
-﻿
-namespace ChessLib.Pieces
+﻿namespace ChessLib.Pieces
 {
     public class Knight : Piece
     {

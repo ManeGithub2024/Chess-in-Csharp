@@ -1,6 +1,5 @@
 ﻿using ChessLib.Contracts;
 using ChessLib.Pieces;
-using System;
 
 namespace ChessLib
 {

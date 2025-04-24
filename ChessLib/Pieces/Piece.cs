@@ -32,7 +32,7 @@
 
         public override string ToString()
         {
-            return $"{this.GetType().Name}";
+            return $"{this.Color} {this.GetType().Name}";
         }
 
         private bool IsCellAvailableForMove(Coordinates coordinates, Board board)
