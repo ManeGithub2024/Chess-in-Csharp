@@ -2,21 +2,33 @@
 {
     public class Coordinates : IEquatable<Coordinates>
     {
-        public File File { get; set; }
         public Rank Rank { get; set; }
+        public File File { get; set; }
 
-        public Coordinates(File file, Rank rank)
+        internal Coordinates(File file, Rank rank)
         {
-            File = file;
-            Rank = rank;
+            File = (File)file;
+            Rank = (Rank)rank;
+        }
+
+        public Coordinates(int file, int rank)
+        {
+            File = (File)file;
+            Rank = (Rank)rank;
+        }
+
+        public Coordinates(char file, char rank)
+        {
+            File = (File)Enum.Parse(typeof(File),file.ToString().ToUpper());
+            Rank = (Rank)Enum.Parse(typeof(Rank), rank.ToString().ToUpper()); ;
         }
 
         public Coordinates Shift(CoordinatesShift shift)
         {
-            var newFileShift = (int)this.File + (int)shift.FileShift;
-            var newRankShift = (int)this.Rank + (int)shift.RankShift;
+            var newFileShift = (int)this.File + shift.FileShift;
+            var newRankShift = (int)this.Rank + shift.RankShift;
 
-            return new Coordinates((File)newFileShift, (Rank)newRankShift);
+            return new Coordinates(newFileShift, newRankShift);
         }
 
         public bool CanShift(CoordinatesShift shift)

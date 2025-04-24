@@ -30,6 +30,11 @@
             return result;
         }
 
+        public override string ToString()
+        {
+            return $"{this.GetType().Name}";
+        }
+
         private bool IsCellAvailableForMove(Coordinates coordinates, Board board)
         {
             var isCellEmpty = board.IsCellEmpty(coordinates);

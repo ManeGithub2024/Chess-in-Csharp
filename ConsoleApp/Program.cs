@@ -5,10 +5,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var board = new Board();
-        board.SetupDefaultPiecePositions();
-
-        var game = new Game(board, new BoardRenderer(), new InputOutputCoordinatesProvider());
+        var game = new Game(new Board(), new ConsoleGameUserInteraction());
         game.GameLoop();
 
         Console.ReadKey();

@@ -1,44 +1,59 @@
 ﻿using ChessLib.Contracts;
 using ChessLib.Pieces;
+using System;
 
 namespace ChessLib
 {
     public class Board
     {
-        private readonly IPieceFactory<Piece> _pieceFactory = new PieceFactory();
-        public Dictionary<Coordinates, Piece> Pieces { get; private set; }
+        public int Height { get; private set; }
+        public int Width { get; private set; }
 
+        private readonly IPieceFactory<Piece> _pieceFactory;
+        private readonly Dictionary<Coordinates, Piece> _pieces;
 
         public Board()
         {
-            Pieces = new Dictionary<Coordinates, Piece>();
+            _pieces = new Dictionary<Coordinates, Piece>();
+            _pieceFactory = new PieceFactory();
+
+            Height = Enum.GetValues(typeof(Rank)).Length;
+            Width = Enum.GetValues(typeof(File)).Length;
+        }
+
+        public Piece GetPiece(Coordinates coordinates)
+        {
+            var _= _pieces.TryGetValue(coordinates, out var piece);
+            return piece;
+        }
+
+        public Piece GetPiece(int file, int rank)
+        {
+            var _ = _pieces.TryGetValue(new Coordinates(file, rank), out var piece);
+            return piece;
         }
 
         public void SetPiece(Coordinates coordinates, Piece piece)
         {
             piece.Coordinates = coordinates;
-            Pieces.Add(coordinates, piece);
+            _pieces.Add(coordinates, piece);
         }
+
         public void RemovePiece(Coordinates coordinates)
         {
-            Pieces.Remove(coordinates);
+            _pieces.Remove(coordinates);
         }
 
         public void MovePiece(Coordinates from, Coordinates to)
         {
-            var piece = Pieces[from];
+            var piece = _pieces[from];
             RemovePiece(from);
             SetPiece(to, piece);
         }
 
         public bool IsCellEmpty(Coordinates coordinates)
         {
-            return !this.Pieces.ContainsKey(coordinates);
-        }
-
-        public Piece GetPiece(Coordinates coordinates)
-        {
-            return this.Pieces[coordinates];
+            return !this._pieces.ContainsKey(coordinates);
         }
 
         public void SetupDefaultPiecePositions()
