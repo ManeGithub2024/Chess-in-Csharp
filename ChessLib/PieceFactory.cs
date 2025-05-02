@@ -25,5 +25,37 @@ namespace ChessLib
                     throw new ArgumentException($"Unknown Piece type: {pieceType.Name}");
             }
         }
+
+        public Piece CreatePiece(Coordinates coordinates, char fenPiece)
+        {
+            switch (fenPiece) {
+                case 'p':
+                    return CreatePiece<Pawn>(coordinates, Color.Black);
+                case 'P':
+                    return CreatePiece<Pawn>(coordinates, Color.White);
+                case 'r':
+                    return CreatePiece<Rook>(coordinates, Color.Black);
+                case 'R':
+                    return CreatePiece<Rook>(coordinates, Color.White);
+                case 'n':
+                    return CreatePiece<Knight>(coordinates, Color.Black);
+                case 'N':
+                    return CreatePiece<Knight>(coordinates, Color.White);
+                case 'b':
+                    return CreatePiece<Bishop>(coordinates, Color.Black);
+                case 'B':
+                    return CreatePiece<Bishop>(coordinates, Color.White);
+                case 'q':
+                    return CreatePiece<Queen>(coordinates, Color.Black);
+                case 'Q':
+                    return CreatePiece<Queen>(coordinates, Color.White);
+                case 'k':
+                    return CreatePiece<King>(coordinates, Color.Black);
+                case 'K':
+                    return CreatePiece<King>(coordinates, Color.White);
+                default:
+                    throw new ArgumentException($"Unknown Piece type: {fenPiece}");
+            }
+        }
     }
 }
