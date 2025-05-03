@@ -13,7 +13,7 @@
 
         protected abstract HashSet<CoordinatesShift> GetPieceShift();
 
-        public HashSet<Coordinates> GetAvailableMoveCell(Board board)
+        public IEnumerable<Coordinates> GetAvailableMoveCell(Board board)
         {
             var result = new HashSet<Coordinates>();
             var shifts = GetPieceShift();

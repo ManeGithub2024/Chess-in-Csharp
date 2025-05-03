@@ -14,7 +14,9 @@ namespace ConsoleApp
 
         public void DrawBoard(Board board) => _consoleBoardRenderer.DrawBoard(board);
 
-        public Coordinates GetMoveCoordinates(HashSet<Coordinates> availableMoves)
+        public void DrawBoard(Board board, IEnumerable<Coordinates> possibleMoves) => _consoleBoardRenderer.DrawBoard(board, possibleMoves);
+
+        public Coordinates GetMoveCoordinates(IEnumerable<Coordinates> availableMoves)
         {
             while (true) {
                 PrintAvailableMoves(availableMoves);
@@ -66,7 +68,7 @@ namespace ConsoleApp
             return false;
         }
 
-        private void PrintAvailableMoves(HashSet<Coordinates> availableMoves)
+        private void PrintAvailableMoves(IEnumerable<Coordinates> availableMoves)
         {
             var availableCoordinates = availableMoves.Select(c => c.ToString()).ToArray();
             var availableCoordinatesStr = string.Join(", ", availableCoordinates);

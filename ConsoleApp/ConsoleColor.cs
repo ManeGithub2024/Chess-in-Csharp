@@ -4,6 +4,7 @@
     {
         White = 1,
         Black,
+        Highlight,
         ResetColor
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ChessLib.Contracts;
+using System.Collections.Generic;
 
 namespace ChessLib
 {
@@ -33,6 +34,10 @@ namespace ChessLib
                 var piece = _board.GetPiece(from);
 
                 var possibleMoves = piece.GetAvailableMoveCell(_board);
+                if (possibleMoves.Any()) {
+                    _provider.DrawBoard(_board, possibleMoves);
+                }
+
                 var to = _provider.GetMoveCoordinates(possibleMoves);
 
                 if (!_board.IsCellEmpty(to)) {

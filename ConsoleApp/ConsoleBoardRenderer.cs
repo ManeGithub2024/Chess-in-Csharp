@@ -29,8 +29,26 @@ namespace ConsoleApp
             Console.WriteLine("    A  B  C  D  E  F  G  H");
         }
 
+        public void DrawBoard(Board board, IEnumerable<Coordinates> possibleMoves)
+        {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            for (int rank = board.Height; rank > 0; rank--) {
+                Console.Write($" {rank}|");
+                for (int file = 1; file <= board.Width; file++) {
+                    var piece = board.GetPiece(file, rank);
+                    var isHighLighted = board.IsHighLighted(file, rank, possibleMoves);
+                    var square = GetCellSprite(file, rank, piece, isHighLighted);
+                    Console.Write(square);
+                    // isHighLighted = !isHighLighted;
+                }
+                Console.WriteLine();
+                // isHighLighted = !isHighLighted;
+            }
+            Console.WriteLine("    A  B  C  D  E  F  G  H");
+        }
+
         // Apply cell color and cell content depend on piece
-        private string GetCellSprite(int file, int rank, Piece piece)
+        private string GetCellSprite(int file, int rank, Piece piece, bool isHighLighted = false)
         {
             var isCellBlack = IsCellBlack(file,rank);
             string symbol = "   ";
@@ -46,6 +64,10 @@ namespace ConsoleApp
             }
             if (piece?.Color == Color.Black) {
                 symbol = _boardCellSprite.FontColors[ConsoleColor.Black] + symbol;
+            }
+
+            if (isHighLighted) {
+                background = _boardCellSprite.BackgroundColors[ConsoleColor.Highlight];
             }
 
             var cellColor = background + symbol + _boardCellSprite.BackgroundColors[ConsoleColor.ResetColor];

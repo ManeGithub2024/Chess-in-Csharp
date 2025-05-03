@@ -32,6 +32,12 @@ namespace ChessLib
             return piece;
         }
 
+        public bool IsHighLighted(int file, int rank, IEnumerable<Coordinates> possibleMoves)
+        {            
+            var isHighLighted = possibleMoves.Any(x=> x.Equals(new Coordinates(file, rank)));
+            return isHighLighted;
+        }
+
         public void SetPiece(Coordinates coordinates, Piece piece)
         {
             piece.Coordinates = coordinates;
