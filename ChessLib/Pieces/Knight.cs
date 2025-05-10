@@ -23,5 +23,10 @@
 
             return result;
         }
+
+        protected override bool IsCellAvailableForMove(Coordinates target, Board board)
+        {
+            return base.IsCellAvailableForMove(target, board);
+        }
     }
 }

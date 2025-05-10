@@ -11,5 +11,10 @@
         {
             throw new NotImplementedException();
         }
+
+        protected override bool IsCellAvailableForMove(Coordinates target, Board board)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

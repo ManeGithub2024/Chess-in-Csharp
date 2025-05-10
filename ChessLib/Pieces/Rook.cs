@@ -9,7 +9,12 @@
 
         protected override HashSet<CoordinatesShift> GetPieceShift()
         {
-            throw new NotImplementedException();
+            return base.GetPieceShiftByVerticalAndHorizontal();
+        }
+
+        protected override bool IsCellAvailableForMove(Coordinates target, Board board)
+        {
+            return base.IsCellAvailableForMoveByVerticalAndHorizontal(target, board);
         }
     }
 }
