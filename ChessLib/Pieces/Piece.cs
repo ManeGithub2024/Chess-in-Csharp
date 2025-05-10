@@ -13,7 +13,7 @@
 
         protected abstract HashSet<CoordinatesShift> GetPieceShift();
 
-        public IEnumerable<Coordinates> GetAvailableMoveCell(Board board)
+        public IEnumerable<Coordinates> GetAvailableMoveCells(Board board)
         {
             var result = new HashSet<Coordinates>();
             var shifts = GetPieceShift();
@@ -35,14 +35,18 @@
             return $"{this.Color} {this.GetType().Name}";
         }
 
-        private bool IsCellAvailableForMove(Coordinates coordinates, Board board)
+        protected virtual bool IsCellAvailableForMove(Coordinates target, Board board)
         {
-            var isCellEmpty = board.IsCellEmpty(coordinates);
+            var isCellEmpty = board.IsCellEmpty(target);
             if (isCellEmpty) {
                 return true;
             }
 
-            var piece = board.GetPiece(coordinates);
+            return IsEnemy(target, board);
+        }
+
+        protected bool IsEnemy(Coordinates target, Board board) {
+            var piece = board.GetPiece(target);
             var isEnemy = piece?.Color != this.Color;
 
             return isEnemy;

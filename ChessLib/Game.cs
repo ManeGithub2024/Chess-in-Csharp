@@ -20,7 +20,7 @@ namespace ChessLib
 
         public void GameLoop()
         {
-            _board.SetupDefaultPiecePositions();
+            // _board.SetupDefaultPiecePositions();
 
             while (true) {
                 _provider.DrawBoard(_board);
@@ -33,7 +33,7 @@ namespace ChessLib
 
                 var piece = _board.GetPiece(from);
 
-                var possibleMoves = piece.GetAvailableMoveCell(_board);
+                var possibleMoves = piece.GetAvailableMoveCells(_board);
                 if (possibleMoves.Any()) {
                     _provider.DrawBoard(_board, possibleMoves);
                 }
@@ -69,7 +69,7 @@ namespace ChessLib
                 }
 
                 // piece should be available to move
-                var availableCells = piece.GetAvailableMoveCell(board);
+                var availableCells = piece.GetAvailableMoveCells(board);
                 if (!availableCells.Any()) {
                     _provider.PrintValidationError($"{piece.GetType().Name} is blocked!");
                     continue;
