@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessLib.Pieces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -82,6 +83,22 @@ namespace ChessLib
             result.Add(trg);
 
             return result;
+        }
+
+        public static bool IsTargetUnderAttack(Color color, Coordinates target, Board board)
+        {
+            var enemies = board.GetEnemies(color);
+            foreach (var piece in enemies) {
+                if (piece.GetType() == typeof(King)) {
+                    continue;
+                }
+                var possibleMoves = piece.GetAvailableMoveCells(board);
+                if (possibleMoves.Any(x => x.Equals(target))) {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

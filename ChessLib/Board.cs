@@ -32,6 +32,11 @@ namespace ChessLib
             return piece;
         }
 
+        public IEnumerable<Piece> GetEnemies(Color color)
+        {
+           return _pieces.Where(x => x.Value.Color != color).Select(x => x.Value).ToArray();
+        }
+
         public bool IsHighLighted(int file, int rank, IEnumerable<Coordinates> possibleMoves)
         {            
             var isHighLighted = possibleMoves.Any(x=> x.Equals(new Coordinates(file, rank)));

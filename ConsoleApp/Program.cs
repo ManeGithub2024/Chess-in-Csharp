@@ -5,7 +5,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var board = new BoardFactory().FromFen("3kq1n1/p4p2/4b3/8/R5P1/2B2N2/1P6/3KQ3 w - - 0 1");
+        var board = new BoardFactory().FromFen("8/8/3k3b/1p6/4K3/R7/8/4Q3 w - - 0 1");
         var game = new Game(board, new ConsoleGameUserInteraction());
         game.GameLoop();
 

@@ -1,4 +1,5 @@
-﻿namespace ChessLib.Pieces
+﻿
+namespace ChessLib.Pieces
 {
     public abstract class Piece
     {
