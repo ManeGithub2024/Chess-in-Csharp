@@ -5,15 +5,15 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var board = new BoardFactory().FromFen("8/8/3k3b/1p6/4K3/R7/8/4Q3 w - - 0 1");
-        var game = new Game(board, new ConsoleGameUserInteraction());
+        var defaultBoard = new Board();
+        defaultBoard.SetupDefaultPiecePositions();
+
+        var fenBoard = new BoardFactory().FromFen("8/8/2KB4/3Pb3/1r2k3/8/2R5/8 b - - 0 59");
+        
+        var game = new Game(fenBoard, new ConsoleGameUserInteraction());
+        //var game = new Game(defaultBoard, new ConsoleGameUserInteraction());
         game.GameLoop();
-
-        //var board = new BoardFactory().FromFen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-        //var boardRenderer = new ConsoleBoardRenderer();
-        //boardRenderer.DrawBoard(board);
-
-
+        
         Console.ReadKey();
     }
 }

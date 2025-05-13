@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Net.NetworkInformation;
-
-namespace ChessLib.Pieces
+﻿namespace ChessLib.Pieces
 {
     public class King : Piece
     {

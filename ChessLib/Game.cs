@@ -1,5 +1,4 @@
 ﻿using ChessLib.Contracts;
-using System.Collections.Generic;
 
 namespace ChessLib
 {
@@ -32,6 +31,7 @@ namespace ChessLib
                 var from = GetPickUpCoordinates(color, _board);
 
                 var piece = _board.GetPiece(from);
+                Console.Clear();
 
                 var possibleMoves = piece.GetAvailableMoveCells(_board);
                 if (possibleMoves.Any()) {
@@ -49,6 +49,7 @@ namespace ChessLib
                 _board.MovePiece(from, to);
 
                 IsWhiteTurn = !IsWhiteTurn;
+                Console.Clear();
             }
         }
 

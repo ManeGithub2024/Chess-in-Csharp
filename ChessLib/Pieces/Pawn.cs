@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace ChessLib.Pieces
+﻿namespace ChessLib.Pieces
 {
     public class Pawn : Piece
     {
