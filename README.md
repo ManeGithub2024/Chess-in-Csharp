@@ -5,7 +5,6 @@ The implementation needs to cover two main scenarios:
 1 - Detecting a Check: After the current player makes a move, we need to determine if the opponent's king is now in check.
 2 - Preventing Self-Check on Capture: When the king captures an opponent's piece, we must ensure that the resulting position does not leave the king in check.
 
-Screen
 Leftovers:
 ![image](https://github.com/user-attachments/assets/1b798a01-851d-475c-9da7-18ca2d5c982d)
 
